@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.example.PivotTableMapper">
+    <select id="selectWithParameter" resultType="org.example.PivotTable">
+        select
+        <choose>
+            <when test='row.equals("a")'>a</when>
+            <when test='row.equals("b")'>b</when>
+            <when test='row.equals("c")'>c</when>
+            <when test='row.equals("d")'>d</when>
+            <when test='row.equals("y")'>y</when>
+        </choose>
+        as row,
+        <choose>
+            <when test='col.equals("a")'>a</when>
+            <when test='col.equals("b")'>b</when>
+            <when test='col.equals("c")'>c</when>
+            <when test='col.equals("d")'>d</when>
+            <when test='col.equals("y")'>y</when>
+        </choose>
+        as col, v as val from source_data where
+        <choose>
+            <when test='col.equals("a")'>a</when>
+            <when test='col.equals("b")'>b</when>
+            <when test='col.equals("c")'>c</when>
+            <when test='col.equals("d")'>d</when>
+            <when test='col.equals("y")'>y</when>
+        </choose>
+        in (select distinct t.
+        <choose>
+            <when test='col.equals("a")'>a</when>
+            <when test='col.equals("b")'>b</when>
+            <when test='col.equals("c")'>c</when>
+            <when test='col.equals("d")'>d</when>
+            <when test='col.equals("y")'>y</when>
+        </choose>
+        from source_data t) group by
+        <choose>
+            <when test='row.equals("a")'>a</when>
+            <when test='row.equals("b")'>b</when>
+            <when test='row.equals("c")'>c</when>
+            <when test='row.equals("d")'>d</when>
+            <when test='row.equals("y")'>y</when>
+        </choose>
+        ,
+        <choose>
+            <when test='col.equals("a")'>a</when>
+            <when test='col.equals("b")'>b</when>
+            <when test='col.equals("c")'>c</when>
+            <when test='col.equals("d")'>d</when>
+            <when test='col.equals("y")'>y</when>
+        </choose>
+        ;
+    </select>
+</mapper>
