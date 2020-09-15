@@ -1,5 +1,5 @@
 # Настройка и запуск проекта
-Использовалась IDE *IntelliJ IDEA Ultimate*
+Использовалась IDE *IntelliJ IDEA Ultimate*. Проект реализован на *Java 11* с использованием *Spring Boot*. В качестве ORM - *MyBatis*. Сборка с помощью *Maven*
 
 Для запуска проекта необходимо настроить путь к БД
 1. Открываем файл `application.properties`
